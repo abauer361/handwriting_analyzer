@@ -10,10 +10,10 @@ try:
     api_key = st.secrets["ANTHROPIC_API_KEY"]
     client = anthropic.Anthropic(api_key=api_key)
 except KeyError:
-    st.error("❌ ANTHROPIC_API_KEY not found in Streamlit secrets. Please add it to your secrets configuration.")
+    st.error("ANTHROPIC_API_KEY not found in Streamlit secrets. Please add it to your secrets configuration.")
     st.stop()
 except Exception as e:
-    st.error(f"❌ Error initializing Anthropic client: {e}")
+    st.error(f"Error initializing Anthropic client: {e}")
     st.stop()
 
 def analyze_handwriting(image):
