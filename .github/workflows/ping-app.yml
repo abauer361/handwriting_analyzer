@@ -1,0 +1,13 @@
+name: Ping Handwriting Analyzer
+
+on:
+  schedule:
+    - cron: "0 8 * * *" # Runs every day at 08:00 UTC
+  workflow_dispatch: # Optional: lets you run it manually
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send request to app
+        run: curl -s -o /dev/null -w "%{http_code}" https://handwriting-analyzer.streamlit.app/
